@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <a-scene mindar-image="imageTargetSrc: images/affiche.mind" color-space="sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+
+    <a-assets>
+      <img id="affiche" src="images/affiche.png" />
+      <img id="btn-retour-img" src="https://cdn-icons-png.flaticon.com/512/1828/1828665.png" />
+
+      <img id="graph" src="images/part1.png" />
+
+      <img id="text2-1" src="images/texte/part2/text2-1.png" />
+      <img id="text2-2" src="images/texte/part2/text2-2.png" />
+      <img id="text2-3" src="images/texte/part2/text2-3.png" />
+      <img id="text2-4" src="images/texte/part2/text2-4.png" />
+      <img id="text2-5" src="images/texte/part2/text2-5.png" />
+      <img id="text2-6" src="images/texte/part2/text2-6.png" />
+
+      <img id="text3-1" src="images/texte/part3/text3-1.png" />
+      <img id="text3-2" src="images/texte/part3/text3-2.png" />
+      <img id="text3-3" src="images/texte/part3/text3-3.png" />
+      <img id="text3-4" src="images/texte/part3/text3-4.png" />
+
+      <img id="text4-1" src="images/texte/part4/text4-1.png" />
+      <img id="text4-2" src="images/texte/part4/text4-2.png" />
+      <img id="text4-3" src="images/texte/part4/text4-3.png" />
+      <img id="text4-4" src="images/texte/part4/text4-4.png" />
+      <img id="text4-5" src="images/texte/part4/text4-5.png" />
+
+      <img id="text5-1" src="images/texte/part5/Fichier1.png" />
+      <img id="text5-2" src="images/texte/part5/Fichier2.png" />
+      <img id="text5-3" src="images/texte/part5/Fichier3.png" />
+      <img id="text5-4" src="images/texte/part5/Fichier4.png" />
+      <img id="text5-5" src="images/texte/part5/Fichier5.png" />
+      <img id="text5-6" src="images/texte/part5/Fichier6.png" />
+      <img id="text5-7" src="images/texte/part5/Fichier7.png" />
+      <img id="text5-8" src="images/texte/part5/Fichier8.png" />
+      <img id="text5-9" src="images/texte/part5/Fichier9.png" />
+      <img id="text5-10" src="images/texte/part5/Fichier10.png" />
+      <img id="text5-11" src="images/texte/part5/Fichier11.png" />
+      <img id="text6-1" src="images/texte/part6/text6-1.png" />
+      <img id="text6-2" src="images/texte/part6/text6-2.png" />
+
+      <a-asset-item id="fleche" src="./model/part2_fleche.glb"></a-asset-item>
+      <a-asset-item id="student1" src="./model/part3_student1.glb"></a-asset-item>
+      <a-asset-item id="student2" src="./model/part3_student2.glb"></a-asset-item>
+      <a-asset-item id="universite" src="./model/part6_universite.glb"></a-asset-item>
+      <a-asset-item id="livre" src="./model/part4_book.glb"></a-asset-item>
+      <a-asset-item id="diplome-model" src="./model/part5_diplome.glb"></a-asset-item>
+      </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;"
+      raycaster="far: 10000; objects: .clickable"></a-camera>
+
+    <a-entity mindar-image-target="targetIndex: 0">
+
+      <a-entity id="menu-principal" visible="true">
+        <a-plane src="#affiche" position="0 0 0" height="2.5" width="1.875" opacity="0.5"></a-plane>
+
+        <a-text value="Comparaison avec la ville de Montpellier" position="0 0.9 0.3" align="center"
+          scale="0.5 0.5 0.5" color="black"></a-text>
+
+        <a-image id="part1" class="clickable image-menu" src="images/part1.png" position="0 0 0.29" height="0.65"
+          width="0.65" gestion-scene="action: open; target: #sous-scene-1"></a-image>
+
+        <a-image id="part2" class="clickable image-menu" src="images/part2.png" position="-0.40 0.40 0.3" height="0.65"
+          width="0.65" gestion-scene="action: open; target: #sous-scene-2"></a-image>
+
+        <a-image id="part3" class="clickable image-menu" src="images/part3.png" position="0.40 0.40 0.3" height="0.65"
+          width="0.65" gestion-scene="action: open; target: #sous-scene-3"></a-image>
+
+        <a-image id="part4" class="clickable image-menu" src="images/part4.png" position="0.40 -0.40 0.3" height="0.65"
+          width="0.65" gestion-scene="action: open; target: #sous-scene-4"></a-image>
+
+        <a-image id="part5" class="clickable image-menu" src="images/part5.png" position="-0.40 -0.40 0.3" height="0.65"
+          width="0.65" gestion-scene="action: open; target: #sous-scene-5"></a-image>
+
+        <a-image id="part6" class="clickable image-menu" src="images/part6.png" position="0 -1.05 0.3" height="0.5"
+          width="1.5" gestion-scene="action: open; target: #sous-scene-6"></a-image>
+      </a-entity>
+
+
+      <a-entity id="sous-scene-1" visible="false">
+        <a-plane position="0 0 0" height="1" width="1.5" opacity="0.7"></a-plane>
+
+        <a-image src="#graph" position="0 0 1" scale="1 1 1" rotation="0 0-3 0"
+          animation="property: rotation; to: 0 0 30; dir: alternate; loop: true; dur: 3000; easing: easeInOutSine"></a-image>
+
+        <a-image src="#btn-retour-img" class="bouton-retour" position="-0.7 0.4 0.1" scale="0.1 0.1 0.1"
+          gestion-scene="action: close"></a-image>
+      </a-entity>
+
+      <a-entity id="sous-scene-2" visible="false">
+        <a-plane position="0 0 0" height="1" width="1.5" opacity="0.8" color="#fef1f4"></a-plane>
+
+        <a-entity position="-0.4 0 0.3">
+          <a-gltf-model src="#fleche" scale="0 0 0" position="0 -0.05 -0.1" rotation="0 180 0"
+            animation="property: scale; from: 0 0 0; to: 0.7 0.7 0.1; dur: 3000; easing: easeOutQuad; startEvents: showscene"
+            animation__pos="property: position; from: 0 -0.1 -0.1; to: 0 -0.05 -0.1; dur: 500; easing: easeOutQuad; startEvents: showscene">
+          </a-gltf-model>
+          <a-image src="#text2-2" position="0 -0.4 0" scale="0.25 0.1 1"></a-image>
+          <a-image src="#text2-1" position="0 0.3 0" scale="0.25 0.1 1" opacity="0"
+            animation="property: opacity; from: 0; to: 1; dur: 3000; easing: linear; startEvents: showscene">
+          </a-image>
+          <a-image src="#text2-3" position="-0.25 -0.05 0" scale="0.16 0.06 0.6" opacity="0"
+            animation="property: opacity; from: 0; to: 1; dur: 3000; easing: linear; startEvents: showscene">
+          </a-image>
+        </a-entity>
+
+        <a-entity position="0.4 0 0.3">
+          <a-gltf-model src="#fleche" scale="0 0 0" position="0 -0.15 -0.1" rotation="0 180 0"
+            animation="property: scale; from: 0 0 0; to: 0.45 0.45 0.1; dur: 3000; easing: easeOutQuad; startEvents: showscene"
+            animation__pos="property: position; from: 0 -0.1 -0.1; to: 0 -0.15 -0.1; dur: 500; easing: easeOutQuad; startEvents: showscene">
+          </a-gltf-model>
+          <a-image src="#text2-5" position="0 -0.4 0" scale="0.25 0.1 1"></a-image>
+          <a-image src="#text2-4" position="0 0.1 0" scale="0.25 0.1 1" opacity="0"
+            animation="property: opacity; from: 0; to: 1; dur: 3000; easing: linear; startEvents: showscene">
+          </a-image>
+          <a-image src="#text2-6" position="0.2 -0.1 0" scale="0.16 0.06 0.6" opacity="0"
+            animation="property: opacity; from: 0; to: 1; dur: 3000; easing: linear; startEvents: showscene">
+          </a-image>
+        </a-entity>
+
+        <a-image src="#btn-retour-img" class="bouton-retour" position="-0.7 0.4 0.1" scale="0.1 0.1 0.1"
+          gestion-scene="action: close"></a-image>
+      </a-entity>
+
+      <a-entity id="sous-scene-3" visible="false">
+        <a-plane position="0 0.5 0" height="1" width="1.5" opacity="0.7"></a-plane>
+
+        <a-entity position="-0.4 -0.1 0.3">
+          <a-image src="#text3-1" position="0 0.8 0" scale="0.5 0.2 1"></a-image>
+
+          <a-entity id="container-beziers" position="0 0 0"></a-entity>
+
+          <a-image id="text-beziers" src="#text3-2" position="0 0.6 0" scale="0.5 0.2 1"></a-image>
+        </a-entity>
+
+        <a-entity position="0.4 -0.1 0.3">
+          <a-image src="#text3-3" position="0 0.8 0" scale="0.5 0.2 1"></a-image>
+
+          <a-entity id="container-montpellier" position="0 0 0"></a-entity>
+
+          <a-image id="text-montpellier" src="#text3-4" position="0 0.6 0" scale="0.5 0.2 1"></a-image>
+        </a-entity>
+
+        <a-image src="#btn-retour-img" class="bouton-retour" position="0.7 0.9 0.3" scale="0.1 0.1 0.1"
+          gestion-scene="action: close"></a-image>
+      </a-entity>
+
+      <a-entity id="sous-scene-4" visible="false">
+        <a-plane position="0 0 0" height="1" width="1.5" opacity="0.7"></a-plane>
+
+        <a-entity position="-0.4 0 0.3">
+          <a-image src="#text4-4" position="0 0.25 0" scale="0.33 0.13 1"></a-image>
+
+          <a-gltf-model src="#livre" scale="0.12 0.12 0.12" position="-0.27 -0.05 0" rotation="0 0 0">
+          </a-gltf-model>
+          <a-entity position="-0.27 -0.2 0" class="student-rotator"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear; startEvents: showscene-4">
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="0 0 0"></a-gltf-model>
+          </a-entity>
+
+          <a-gltf-model src="#livre" scale="0.2 0.2 0.2" position="0 -0.05 0" rotation="0 0 0">
+          </a-gltf-model>
+          <a-entity position="0 -0.2 0" class="student-rotator"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear; startEvents: showscene-4">
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="0 -0.05 0.08"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="0 -0.05 -0.08"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="0.08 -0.05 0"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="-0.08 -0.05 0"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="0.05 -0.05 0.05"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="-0.05 -0.05 -0.05"></a-gltf-model>
+          </a-entity>
+
+
+          <a-gltf-model src="#livre" scale="0.26 0.26 0.26" position="0.27 -0.05 0" rotation="0 0 0">
+          </a-gltf-model>
+          <a-entity position="0.27 -0.2 0" class="student-rotator"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear; startEvents: showscene-4">
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="0 0 0"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="0.07 0 0"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="-0.07 0 0"></a-gltf-model>
+          </a-entity>
+
+          <a-image src="#text4-1" position="-0.27 0.05 0" scale="0.07 0.07 0.07"></a-image>
+          <a-image src="#text4-2" position="0 0.05 0" scale="0.07 0.07 0.07"></a-image>
+          <a-image src="#text4-3" position="0.27 0.05 0" scale="0.07 0.07 0.07"></a-image>
+        </a-entity>
+
+        <a-entity position="0.4 0 0.3">
+          <a-image src="#text4-5" position="0 0.25 0" scale="0.40 0.13 1"></a-image>
+
+          <a-gltf-model src="#livre" scale="0.26 0.26 0.26" position="-0.27 -0.05 0" rotation="0 0 0">
+          </a-gltf-model>
+          <a-entity position="-0.27 -0.2 0" class="student-rotator"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear; startEvents: showscene-4">
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="0.05 0 0"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="-0.05 0 0"></a-gltf-model>
+          </a-entity>
+
+          <a-gltf-model src="#livre" scale="0.2 0.2 0.2" position="0 -0.05 0" rotation="0 0 0">
+          </a-gltf-model>
+          <a-entity position="0 -0.2 0" class="student-rotator"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear; startEvents: showscene-4">
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="0 -0.05 0.08"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="0 -0.05 -0.08"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="0.08 -0.05 0"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="-0.08 -0.05 0"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="0.05 -0.05 0.05"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="-0.05 -0.05 -0.05"></a-gltf-model>
+          </a-entity>
+
+          <a-gltf-model src="#livre" scale="0.12 0.12 0.12" position="0.27 -0.05 0" rotation="0 0 0">
+          </a-gltf-model>
+          <a-entity position="0.27 -0.2 0" class="student-rotator"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear; startEvents: showscene-4">
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="0.05 0 0"></a-gltf-model>
+            <a-gltf-model src="#student1" scale="0.25 0.25 0.25" position="-0.05 0 0"></a-gltf-model>
+          </a-entity>
+
+          <a-image src="#text4-1" position="-0.27 0.05 0" scale="0.07 0.07 0.07"></a-image>
+          <a-image src="#text4-2" position="0 0.05 0" scale="0.07 0.07 0.07"></a-image>
+          <a-image src="#text4-3" position="0.27 0.05 0" scale="0.07 0.07 0.07"></a-image>
+        </a-entity>
+
+        <a-image src="#btn-retour-img" class="bouton-retour" position="-0.7 0.4 0.1" scale="0.1 0.1 0.1"
+          gestion-scene="action: close"></a-image>
+      </a-entity>
+      <a-entity id="sous-scene-5" visible="false">
+        <a-plane position="0 0 0" height="1.5" width="1.8" opacity="0.8" color="#fef1f4"></a-plane>
+
+        <a-entity position="-0.5 0 0.3">
+          <a-image src="#text5-10" position="0 0.4 0" scale="0.5 0.2 1"></a-image>
+          <a-gltf-model src="#diplome-model" scale="0.5 0.5 0.5" position="0 0.2 0"
+            diplome-clickable="ville: beziers; index: 0; image: #text5-1"></a-gltf-model>
+          <a-gltf-model src="#diplome-model" scale="0.4 0.4 0.4" position="0 -0.1 0"
+            diplome-clickable="ville: beziers; index: 1; image: #text5-2"></a-gltf-model>
+          <a-gltf-model src="#diplome-model" scale="0.3 0.3 0.3" position="0 -0.4 0"
+            diplome-clickable="ville: beziers; index: 2; image: #text5-3"></a-gltf-model>
+        </a-entity>
+
+        <a-entity position="0.5 0 0.3">
+          <a-image src="#text5-11" position="0 0.4 0" scale="0.5 0.2 1"></a-image>
+          <a-gltf-model src="#diplome-model" scale="0.5 0.5 0.5" position="0 0.2 0"
+            diplome-clickable="ville: montpellier; index: 0; image: #text5-1"></a-gltf-model>
+          <a-gltf-model src="#diplome-model" scale="0.4 0.4 0.4" position="0 -0.1 0"
+            diplome-clickable="ville: montpellier; index: 1; image: #text5-2"></a-gltf-model>
+          <a-gltf-model src="#diplome-model" scale="0.3 0.3 0.3" position="0 -0.4 0"
+            diplome-clickable="ville: montpellier; index: 2; image: #text5-3"></a-gltf-model>
+        </a-entity>
+
+        <a-image src="#btn-retour-img" class="bouton-retour" position="-0.7 0.65 0.1" scale="0.1 0.1 0.1"
+          gestion-scene="action: close"></a-image>
+      </a-entity>
+      <a-entity id="sous-scene-6" visible="false">
+        <a-plane position="0 0 0" height="1" width="1.5" opacity="0.7"></a-plane>
+
+        <a-entity position="-0.4 0 0.3">
+          <a-gltf-model src="#universite" scale="0.01 0.01 0.01" position="0 -0.05 -0.1" rotation="0 -60 0"
+            animation="property: rotation; to: 0 -120 0; dir: alternate; loop: true; dur: 3000; easing: easeInOutSine">
+          </a-gltf-model>
+          <a-image src="#text6-1" position="0 -0.25 0" scale="0.5 0.2 1"></a-image>
+        </a-entity>
+
+        <a-entity position="0.4 0 0.3">
+          <a-gltf-model src="#universite" scale="0.02 0.02 0.02" position="0 -0.05 0" rotation="0 -60 0"
+            animation="property: rotation; to: 0 -120 0; dir: alternate; loop: true; dur: 3000; easing: easeInOutSine">
+          </a-gltf-model>
+          <a-image src="#text6-2" position="0 -0.25 0" scale="0.5 0.1 1"></a-image>
+        </a-entity>
+
+        <a-image src="#btn-retour-img" class="bouton-retour" position="-0.7 0.4 0.1" scale="0.1 0.1 0.1"
+          gestion-scene="action: close"></a-image>
+      </a-entity>
+
+    </a-entity>
+  </a-scene>
+</body>
+
+</html>
